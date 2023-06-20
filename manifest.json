@@ -22,5 +22,11 @@
 	"icons": {
 		"16": "images/zoom16.png",
 		"48": "images/zoom48.png"
-	}
+	},
+	"content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
 }
