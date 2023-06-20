@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dys Extension</title>
+    <script src="popup.js"></script>
+    <script src="js/cr.js"></script>
+    <script src="js/cr/ui.js"></script>
+    <script src="js/cr/ui/overlay.js"></script>
+    <script src="slider.js"></script>
+    <script src="pending_changes.js"></script>
+    <script src="options.js"></script>
+    <link rel="stylesheet" href="css/chrome_shared.css">
+    <link rel="stylesheet" href="css/overlay.css">
+    <link rel="stylesheet" href="css/widgets.css">
+    <link rel="stylesheet" href="css/uber_shared.css">
+    <link rel="stylesheet" href="css/sidepanel.css">
+    <link rel="stylesheet" href="slider.css">
+
+  </head>
+  <body>
+    <div style="text-align: center">
+      <table style="margin: 0px auto">
+        <tr>
+          <td><button type="button" id="decreaseButton">-</button></td>
+          <td><div style="width: 50px;" id="displayDiv">100%</div></td>
+          <td><button type="button" id="increaseButton">+</button></td>
+        </td>
+      </table>
+      <button type="button" id="defaultButton">Reset to Default</button>
+      <div id="defaultLabel"></div>
+    </div>
+  
+      <div id="overlay-container" class="overlay" hidden>
+  <div id="reset-overlay" class="page">
+    <div class="close-button"></div>
+    <div id="reset-this-script-overlay-dialog" hidden>
+      <h1>Reset</h1>
+      <div id="reset-this-script-overlay-dialog-content" class="content-area">
+      </div>
+      <div class="action-area">
+        <div class="button-strip">
+          <button id="reset-this-script-cancel">Cancel</button>
+          <button id="reset-this-script-ok">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div id="reset-all-scripts-overlay-dialog" hidden>
+      <h1>Reset</h1>
+      <div class="content-area">
+        Are you sure you want to reset all settings?
+      </div>
+      <div class="action-area">
+        <div class="button-strip">
+          <button id="reset-all-cancel">Cancel</button>
+          <button id="reset-all-ok">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page">
+  <section>
+    <h3 class="script-header">Script</h3>
+    <div class="font-settings-row">
+      <select id="scriptList"></select>
+    </div>
+  </section>
+  <section>
+    <h3>Proportional fonts</h3>
+    <div class="font-settings-row">
+      <div class="font-settings-div">
+        <div id="defaultFontSizeLabel"></div>
+        <div style="width: 100%; margin-bottom: 0">
+          <span class="slider-legend smaller">Aa</span>
+          <div id="defaultFontSizeSliderContainer" class="slider-container"></div>
+          <span class="slider-legend">Aa</span>
+        </div>
+      </div>
+      <div class="font-settings-div">
+        <div>Standard</div>
+        <div><select id="standardFontList"></select></div>
+      </div>
+      <div class="font-settings-div">
+        <div>Serif</div>
+        <div><select id="serifFontList"></select></div>
+      </div>
+      <div class="font-settings-div">
+        <div>Sans-Serif</div>
+        <div><select id="sansSerifFontList"></select></div>
+      </div>
+    </div>
+    <div class="bordered" style="position: relative; left: 0; right: 0; height: 160px; width: 702px;">
+      <div class="sample-text-div" style="height: 33%">
+        <span id='standardFontSample' class="sample-text-span">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample-text-div" style="height: 33%">
+        <span id="serifFontSample" class="sample-text-span">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+      <div class="sample-text-div" style="height: 33%">
+        <span id="sansSerifFontSample" class="sample-text-span">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Fixed-width fonts</h3>
+    <div class="font-settings-row">
+      <div class="font-settings-div">
+        <div id="fixedFontSizeLabel"></div>
+        <div style="width: 100%; margin-bottom: 0">
+          <span class="slider-legend smaller">Aa</span>
+          <div id="defaultFixedFontSizeSliderContainer" class="slider-container"></div>
+          <span class="slider-legend">Aa</span>
+        </div>
+      </div>
+      <div class="font-settings-div">
+        <div>Fixed</div>
+        <div><select id="fixedFontList"></select></div>
+      </div>
+    </div>
+    <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+      <div class="sample-text-div" style="height: 100%">
+        <span id="fixedFontSample" class="sample-text-span">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Minimum font size</h3>
+    <div class="font-settings-row">
+      <div class="font-settings-div">
+        <div id="minFontSizeLabel" style="margin-bottom: 8px"></div>
+        <div style="width: 100%; margin-bottom: 12px">
+          <span class="slider-legend smaller">Aa</span>
+          <div id="minFontSizeSliderContainer" class="slider-container"></div>
+          <span class="slider-legend">Aa</span>
+        </div>
+      </div>
+    </div>
+    <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+      <div class="sample-text-div" style="height: 100%">
+        <span id="minFontSample" class="sample-text-span">
+          The quick brown fox jumps over the lazy dog.
+        </span>
+      </div>
+    </div>
+  </section>
+  <section id="footer">
+    <button id="apply-settings">
+      Apply settings
+    </button>
+    <button id="reset-this-script-button">
+      Reset settings for this script
+    </button>
+    <button id="reset-all-button">
+      Reset all settings
+    </button>
+  </section>
+</div>
+  </body>
+</html>
+
