@@ -29,7 +29,7 @@ function getSelectedText() {
             if (response && response.selectedText) {
                 loader_summarize.style.display = 'block';
                 if (response.selectedText.length <= 100000) {
-                    // summarize(response.selectedText)
+                    summarize(response.selectedText)
                 } else {
                     text_area.textContent = 'Selected text too long';
                 }
@@ -50,7 +50,7 @@ function summarize(text) {
         },
         body: JSON.stringify({
           'length': 'medium',
-          'format': 'paragraph',
+          'format': 'bullets',
           'model': 'summarize-xlarge',
           'temperature': 0.3,
           'text':  `${text}`,
@@ -69,6 +69,7 @@ function summarize(text) {
             console.log(data);
             loader_summarize.style.display = 'none';
             text_area.textContent = data.summary;
+            // text_area.textContent = data.summary.replace('- ', '\n');
         })
         .catch(function(error) {
             loader_summarize.style.display = 'none';
@@ -76,41 +77,3 @@ function summarize(text) {
             console.error(error);
         });
 }
-
-/*
-function reformulate(text) {
-    const options = {
-        method: 'POST',
-        headers: {
-            'accept': 'application/json',
-            'content-type': 'application/json',
-            'authorization': 'Bearer 3xD2wbyAVLNHBxfwK4Co9SZzuDZztmVBErNJ50Y8'
-        },
-        body: JSON.stringify({
-            'max_tokens': 20, 
-            'return_likelihoods': 'NONE', 
-            'truncate': 'END',
-            'prompt': `${text}`
-        })
-    };
-
-    fetch('https://api.cohere.ai/v1/summarize', options)
-        .then(function(response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Erreur de réseau : ' + response.status);
-            }
-        })
-        .then(function(data) {
-            console.log(data);
-            loader.style.display = 'none';
-            text_area.textContent = data.summary;
-        })
-        .catch(function(error) {
-            loader.style.display = 'none';
-            text_area.textContent = 'erreur';
-            console.error(error);
-        });
-}
-*/

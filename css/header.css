@@ -1,0 +1,16 @@
+header {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-grey-50);
+}
+header .content-left,
+header .content-right {
+    display: flex;
+    align-items: center;
+}
+header .content-left p {
+    color: var(--color-grey-600);
+    font-size: 8px;
+    margin: 0 6px;
+}
