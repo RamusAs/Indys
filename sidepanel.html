@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/summarize.css">
+    <link rel="stylesheet" href="css/subnav.css">
+    <link rel="stylesheet" href="css/navbar.css">
   </head>
   <body>
     <header>
@@ -32,201 +34,249 @@
         <object data="images/auto-fix.svg" type="image/svg+xml"></object>
         <div class="profil">
           <img src="images/img-profil.png" alt="mon profil" width="24px" height="24px">
-          <object data="images/workspace-premium.svg" type="image/svg+xml"></object>
+          <object data="images/workspace-premium.svg" type="image/svg+xml" class="workspace-premium"></object>
         </div>
       </div>
  
     </header>
-    <div class="content">
-
-    </div>
-
-  
-      <div id="overlay-container" class="overlay" hidden>
-  <div id="reset-overlay" class="page">
-    <div class="close-button"></div>
-    <div id="reset-this-script-overlay-dialog" hidden>
-      <h1>Reset</h1>
-      <div id="reset-this-script-overlay-dialog-content" class="content-area">
+    <div id="overlay-container" class="overlay" hidden>
+    <div id="reset-overlay" class="page">
+      <div class="close-button"></div>
+      <div id="reset-this-script-overlay-dialog" hidden>
+        <h1>Reset</h1>
+        <div id="reset-this-script-overlay-dialog-content" class="content-area">
+        </div>
+        <div class="action-area">
+          <div class="button-strip">
+            <button id="reset-this-script-cancel">Cancel</button>
+            <button id="reset-this-script-ok">Reset</button>
+          </div>
+        </div>
       </div>
-      <div class="action-area">
-        <div class="button-strip">
-          <button id="reset-this-script-cancel">Cancel</button>
-          <button id="reset-this-script-ok">Reset</button>
+      <div id="reset-all-scripts-overlay-dialog" hidden>
+        <h1>Reset</h1>
+        <div class="content-area">
+          Are you sure you want to reset all settings?
+        </div>
+        <div class="action-area">
+          <div class="button-strip">
+            <button id="reset-all-cancel">Cancel</button>
+            <button id="reset-all-ok">Reset</button>
+          </div>
         </div>
       </div>
     </div>
-    <div id="reset-all-scripts-overlay-dialog" hidden>
-      <h1>Reset</h1>
-      <div class="content-area">
-        Are you sure you want to reset all settings?
+    </div>
+    <div class="page">
+      <div style="text-align: center">
+        <table style="margin: 0px auto">
+          <tr>
+            <td><button type="button" id="decreaseButton">-</button></td>
+            <td><div style="width: 50px;" id="displayDiv">100%</div></td>
+            <td><button type="button" id="increaseButton">+</button></td>
+          </td>
+        </table>
+        <button type="button" id="defaultButton">Reset to Default</button>
+        <div id="defaultLabel"></div>
       </div>
-      <div class="action-area">
-        <div class="button-strip">
-          <button id="reset-all-cancel">Cancel</button>
-          <button id="reset-all-ok">Reset</button>
+      <section>
+        <h3 class="script-header">Script</h3>
+        <div class="font-settings-row">
+          <select id="scriptList"></select>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="page">
-  <div style="text-align: center">
-    <table style="margin: 0px auto">
-      <tr>
-        <td><button type="button" id="decreaseButton">-</button></td>
-        <td><div style="width: 50px;" id="displayDiv">100%</div></td>
-        <td><button type="button" id="increaseButton">+</button></td>
-      </td>
-    </table>
-    <button type="button" id="defaultButton">Reset to Default</button>
-    <div id="defaultLabel"></div>
-  </div>
-  <section>
-    <h3 class="script-header">Script</h3>
-    <div class="font-settings-row">
-      <select id="scriptList"></select>
-    </div>
-  </section>
-  <section>
-    <h3>Proportional fonts</h3>
-    <div class="font-settings-row">
-      <div class="font-settings-div">
-        <div id="defaultFontSizeLabel"></div>
-        <div style="width: 100%; margin-bottom: 0">
-          <span class="slider-legend smaller">Aa</span>
-          <div id="defaultFontSizeSliderContainer" class="slider-container"></div>
-          <span class="slider-legend">Aa</span>
+      </section>
+      <section>
+        <h3>Proportional fonts</h3>
+        <div class="font-settings-row">
+          <div class="font-settings-div">
+            <div id="defaultFontSizeLabel"></div>
+            <div style="width: 100%; margin-bottom: 0">
+              <span class="slider-legend smaller">Aa</span>
+              <div id="defaultFontSizeSliderContainer" class="slider-container"></div>
+              <span class="slider-legend">Aa</span>
+            </div>
+          </div>
+          <div class="font-settings-div">
+            <div>Standard</div>
+            <div><select id="standardFontList"></select></div>
+          </div>
+          <div class="font-settings-div">
+            <div>Serif</div>
+            <div><select id="serifFontList"></select></div>
+          </div>
+          <div class="font-settings-div">
+            <div>Sans-Serif</div>
+            <div><select id="sansSerifFontList"></select></div>
+          </div>
         </div>
-      </div>
-      <div class="font-settings-div">
-        <div>Standard</div>
-        <div><select id="standardFontList"></select></div>
-      </div>
-      <div class="font-settings-div">
-        <div>Serif</div>
-        <div><select id="serifFontList"></select></div>
-      </div>
-      <div class="font-settings-div">
-        <div>Sans-Serif</div>
-        <div><select id="sansSerifFontList"></select></div>
-      </div>
-    </div>
-    <div class="bordered" style="position: relative; left: 0; right: 0; height: 160px; width: 702px;">
-      <div class="sample-text-div" style="height: 33%">
-        <span id='standardFontSample' class="sample-text-span">
-          The quick brown fox jumps over the lazy dog.
-        </span>
-      </div>
-      <div class="sample-text-div" style="height: 33%">
-        <span id="serifFontSample" class="sample-text-span">
-          The quick brown fox jumps over the lazy dog.
-        </span>
-      </div>
-      <div class="sample-text-div" style="height: 33%">
-        <span id="sansSerifFontSample" class="sample-text-span">
-          The quick brown fox jumps over the lazy dog.
-        </span>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h3>Fixed-width fonts</h3>
-    <div class="font-settings-row">
-      <div class="font-settings-div">
-        <div id="fixedFontSizeLabel"></div>
-        <div style="width: 100%; margin-bottom: 0">
-          <span class="slider-legend smaller">Aa</span>
-          <div id="defaultFixedFontSizeSliderContainer" class="slider-container"></div>
-          <span class="slider-legend">Aa</span>
+        <div class="bordered" style="position: relative; left: 0; right: 0; height: 160px; width: 702px;">
+          <div class="sample-text-div" style="height: 33%">
+            <span id='standardFontSample' class="sample-text-span">
+              The quick brown fox jumps over the lazy dog.
+            </span>
+          </div>
+          <div class="sample-text-div" style="height: 33%">
+            <span id="serifFontSample" class="sample-text-span">
+              The quick brown fox jumps over the lazy dog.
+            </span>
+          </div>
+          <div class="sample-text-div" style="height: 33%">
+            <span id="sansSerifFontSample" class="sample-text-span">
+              The quick brown fox jumps over the lazy dog.
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="font-settings-div">
-        <div>Fixed</div>
-        <div><select id="fixedFontList"></select></div>
-      </div>
-    </div>
-    <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
-      <div class="sample-text-div" style="height: 100%">
-        <span id="fixedFontSample" class="sample-text-span">
-          The quick brown fox jumps over the lazy dog.
-        </span>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h3>Minimum font size</h3>
-    <div class="font-settings-row">
-      <div class="font-settings-div">
-        <div id="minFontSizeLabel" style="margin-bottom: 8px"></div>
-        <div style="width: 100%; margin-bottom: 12px">
-          <span class="slider-legend smaller">Aa</span>
-          <div id="minFontSizeSliderContainer" class="slider-container"></div>
-          <span class="slider-legend">Aa</span>
+      </section>
+      <section>
+        <h3>Fixed-width fonts</h3>
+        <div class="font-settings-row">
+          <div class="font-settings-div">
+            <div id="fixedFontSizeLabel"></div>
+            <div style="width: 100%; margin-bottom: 0">
+              <span class="slider-legend smaller">Aa</span>
+              <div id="defaultFixedFontSizeSliderContainer" class="slider-container"></div>
+              <span class="slider-legend">Aa</span>
+            </div>
+          </div>
+          <div class="font-settings-div">
+            <div>Fixed</div>
+            <div><select id="fixedFontList"></select></div>
+          </div>
         </div>
-      </div>
+        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+          <div class="sample-text-div" style="height: 100%">
+            <span id="fixedFontSample" class="sample-text-span">
+              The quick brown fox jumps over the lazy dog.
+            </span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Minimum font size</h3>
+        <div class="font-settings-row">
+          <div class="font-settings-div">
+            <div id="minFontSizeLabel" style="margin-bottom: 8px"></div>
+            <div style="width: 100%; margin-bottom: 12px">
+              <span class="slider-legend smaller">Aa</span>
+              <div id="minFontSizeSliderContainer" class="slider-container"></div>
+              <span class="slider-legend">Aa</span>
+            </div>
+          </div>
+        </div>
+        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+          <div class="sample-text-div" style="height: 100%">
+            <span id="minFontSample" class="sample-text-span">
+              The quick brown fox jumps over the lazy dog.
+            </span>
+          </div>
+        </div>
+      </section>
+      <section id="section-summarize">
+        <div class="section__title">
+          <div class="section__title-right">
+            <h1>Résumé</h1>
+            <span class="icon">
+              <object data="images/star.svg" type="image/svg+xml"></object>
+            </span>
+          </div>
+          <div class="section__title-left">
+            <span class="icon">
+              <object data="images/copy.svg" type="image/svg+xml"></object>
+            </span>
+          </div>
+        </div>
+        <div class="content_summarize-output bordered">
+          <div id="loader-summarize">loading...</div>
+          <div class="text_selected"></div>
+        </div>
+        <div class="content_summarize-options">
+          <h2>Taille du résumé</h2>
+          <ul class="bordered">
+            <li>
+              <a href="" class="js-active">Court</a>
+            </li>
+            <li>
+              <a href="">Moyen</a>
+            </li>
+            <li>
+              <a href="">Long</a>
+            </li>
+          </ul>
+        </div>
+        <button id="button-summarize" style="margin-bottom: 10px">Summarize</button>
+      </section>
+      <section>
+        <h3>Suggest</h3>
+        <button id="button-suggest" style="margin-bottom: 10px">Suggest</button>
+        <div id="loader-suggest">loading...</div>
+        <div class="text_area_suggest"></div>
+        <textarea id="suggest-textarea" name="story"> </textarea>
+      </section>
+      <section id="footer">
+        <button id="apply-settings">
+          Apply settings
+        </button>
+        <button id="reset-this-script-button">
+          Reset settings for this script
+        </button>
+        <button id="reset-all-button">
+          Reset all settings
+        </button>
+      </section>
     </div>
-    <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
-      <div class="sample-text-div" style="height: 100%">
-        <span id="minFontSample" class="sample-text-span">
-          The quick brown fox jumps over the lazy dog.
-        </span>
-      </div>
-    </div>
-  </section>
-  <section id="section-summarize">
-    <div class="section__title">
-      <div class="section__title-right">
-        <h1>Résumé</h1>
-        <span class="icon">
-          <object data="images/star.svg" type="image/svg+xml"></object>
-        </span>
-      </div>
-      <div class="section__title-left">
-        <span class="icon">
-          <object data="images/copy.svg" type="image/svg+xml"></object>
-        </span>
-      </div>
-    </div>
-    <div class="content_summarize-output bordered">
-      <div id="loader-summarize">loading...</div>
-      <div class="text_selected"></div>
-    </div>
-    <div class="content_summarize-options">
-      <h2>Taille du résumé</h2>
-      <ul class="bordered">
+    <div class="subnav">
+      <ul>
         <li>
-          <a href="" class="js-active">Court</a>
+          <a href="">
+            <object data="images/icon-book.svg" type="image/svg+xml"></object>
+            Mode lecture
+          </a>
         </li>
         <li>
-          <a href="">Moyen</a>
+          <a href="" class="js-active">
+            <object data="images/icon-book.svg" type="image/svg+xml"></object>
+            Résumé
+          </a>
         </li>
         <li>
-          <a href="">Long</a>
+          <a href="">
+            <object data="images/icon-resume.svg" type="image/svg+xml"></object>
+            Reformulation
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <object data="images/icon-refresh.svg" type="image/svg+xml"></object>
+            Synthèse
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <object data="images/icon-add.svg" type="image/svg+xml"></object>
+            Ajouter
+          </a>
         </li>
       </ul>
     </div>
-    <button id="button-summarize" style="margin-bottom: 10px">Summarize</button>
-  </section>
-  <section>
-    <h3>Suggest</h3>
-    <button id="button-suggest" style="margin-bottom: 10px">Suggest</button>
-    <div id="loader-suggest">loading...</div>
-    <div class="text_area_suggest"></div>
-    <textarea id="suggest-textarea" name="story"> </textarea>
-  </section>
-  <section id="footer">
-    <button id="apply-settings">
-      Apply settings
-    </button>
-    <button id="reset-this-script-button">
-      Reset settings for this script
-    </button>
-    <button id="reset-all-button">
-      Reset all settings
-    </button>
-  </section>
-</div>
+    <div class="navbar">
+      <ul>
+        <li>
+          <a href="" class="js-active">
+            <object data="images/icon-refresh.svg" type="image/svg+xml"></object>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <object data="images/icon-refresh.svg" type="image/svg+xml"></object>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <object data="images/icon-refresh.svg" type="image/svg+xml"></object>
+          </a>
+        </li>
+      </ul>
+    </div>
   <script src="summarize.js"></script>
   <script src="suggest.js"></script>
   </body>

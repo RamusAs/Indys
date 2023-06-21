@@ -1,0 +1,29 @@
+.subnav {
+    background-color: var(--color-grey-50);
+    border-top: 1px solid var(--color-grey-200);
+    padding: 16px;
+}
+.subnav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 12px;
+    row-gap: 16px;
+}
+.subnav ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var( --text-s);
+    color: var(--color-grey-700);
+}
+.subnav ul li a.js-active {
+    font-weight: bold;
+    color: var(--color-primary-700);
+}
+.subnav ul li a object {
+    padding: 8px;
+    background: var(--color-grey-200);
+    border-radius: 8px;
+}

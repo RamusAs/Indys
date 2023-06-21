@@ -14,3 +14,14 @@ header .content-left p {
     font-size: 8px;
     margin: 0 6px;
 }
+header .content-right .profil {
+    margin-left: 16px;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+header .content-right .profil .workspace-premium {
+    position: absolute;
+    bottom: -6px;
+    right: -8px;
+}

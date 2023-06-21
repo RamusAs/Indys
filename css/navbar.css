@@ -1,0 +1,18 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 64px;
+    background-color: var(--color-grey-50);
+    border-top: 1px solid var(--color-grey-200);
+}
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+.navbar ul li a.js-active svg path {
+    fill: var(--color-primary-700);
+}
