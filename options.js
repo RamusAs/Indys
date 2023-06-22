@@ -203,7 +203,7 @@ advancedFonts.SAMPLE_TEXTS = {
   Jpan: '吾輩は猫である。名前はまだ無い。',
   // "Khmer language".
   Khmr: '\u1797\u17B6\u179F\u17B6\u1781\u17D2\u1798\u17C2\u179A',
-  Zyyy: 'The quick brown fox jumps over the lazy dog.'
+  Zyyy: '18: Voici à quoi ressemblera votre texte.'
 };
 
 /**

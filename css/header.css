@@ -1,0 +1,29 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95vw;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  isolation: isolate;
+
+  background: #F7F9FD;
+
+  border-bottom: 1px solid #DCE4F4;
+  z-index: 100;
+}
+
+.header .parameters {
+  display: flex;
+  gap: 16px;
+}
+
+.header .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 24px;
+  background: #D9D9D9;
+}

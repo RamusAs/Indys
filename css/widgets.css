@@ -1,16 +1,4 @@
-/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
-/* This file defines styles for form controls. The order of rule blocks is
- * important as there are some rules with equal specificity that rely on order
- * as a tiebreaker. These are marked with OVERRIDE.
- */
-
-/* Default state **************************************************************/
-
-:-webkit-any(button,
+:-webkit-any(
              input[type='button'],
              input[type='submit']):not(.custom-appearance):not(.link-button),
 select,
@@ -29,21 +17,17 @@ input[type='radio'] {
   text-shadow: 0 1px 0 rgb(240, 240, 240);
 }
 
-:-webkit-any(button,
+:-webkit-any(
              input[type='button'],
              input[type='submit']):not(.custom-appearance):not(.link-button),
 select {
   min-height: 2em;
   min-width: 4em;
-<if expr="is_win">
-  /* The following platform-specific rule is necessary to get adjacent
-   * buttons, text inputs, and so forth to align on their borders while also
-   * aligning on the text's baselines. */
   padding-bottom: 1px;
-</if>
+
 }
 
-:-webkit-any(button,
+:-webkit-any(
              input[type='button'],
              input[type='submit']):not(.custom-appearance):not(.link-button) {
   padding-inline-end: 10px;
@@ -100,10 +84,8 @@ textarea {
   /* Use min-height to accommodate addditional padding for touch as needed. */
   min-height: 2em;
   padding: 3px;
-<if expr="is_win or is_macosx">
   /* For better alignment between adjacent buttons and inputs. */
   padding-bottom: 4px;
-</if>
 }
 
 input[type='search'] {
@@ -148,7 +130,6 @@ input[type='radio']:checked::before {
     input[type='checkbox'],
     input[type='radio'],
     :-webkit-any(
-        button,
         input[type='button'],
         input[type='submit']):not(.custom-appearance):not(.link-button)) {
   background-image: -webkit-linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
@@ -303,4 +284,8 @@ input:disabled:-webkit-any([type='password'],
 
 label > input:disabled:-webkit-any([type='checkbox'], [type='radio']) ~ span {
   color: #999;
+}
+
+ul li, ul ol {
+  list-style: none;
 }
