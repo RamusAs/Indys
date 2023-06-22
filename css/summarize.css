@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
 }
+#section-summarize .content_summarize-output {
+    overflow: scroll;
+}
 #section-summarize .icon {
     width: 20px;
     height: 20px;
