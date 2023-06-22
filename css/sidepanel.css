@@ -196,3 +196,10 @@ select {
   height: 24px;
   width: 88px;
 }
+
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}

@@ -64,9 +64,6 @@ nav a {
   font-weight: bolder;
 }
 
-.sub-nav button:focus object {
-  background: red;
-}
 
 .sub-nav button object  svg {
   fill: var(--color-grey-600);
@@ -104,7 +101,13 @@ nav a {
 .item.active {
   display: block;
 }
-
+.sub-nav button.active span {
+  font-size: var(--title-s);
+  color: var(--color-primary-700);
+}
+.sub-nav button object {
+  pointer-events: none;
+}
 .tab {
   height: 95%;
   transition: all 0.3s;
@@ -131,9 +134,6 @@ nav a {
   color: rgb(12, 12, 12);
 }
 
-object svg {
-  fill: red;
-}
 
 @media (max-width: 900px) {
   .sub-nav ul {
