@@ -1,3 +1,7 @@
+
+#default-page.active {
+    display: block;
+}
 #empty-page .content_image {
     display: flex;
     justify-content: center;

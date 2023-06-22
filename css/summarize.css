@@ -28,6 +28,9 @@
     display: flex;
     padding: 4px;
 }
+#section-summarize .content_summarize-options ul li {
+    flex-grow: 1;
+}
 #section-summarize .content_summarize-options ul li a {
     background-color: #fff;
     border-radius: 8px;
@@ -35,6 +38,7 @@
     display: block;
     font-size: 14px;
     color: var(--color-grey-700);
+    text-align: center;
 }
 #section-summarize .content_summarize-options ul li a.js-active {
     background-color: var(--color-primary-100);

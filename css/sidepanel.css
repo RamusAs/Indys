@@ -65,7 +65,9 @@ body.uber-frame header {
 body.uber-frame header > h1 {
   padding-bottom: 16px;
 }
-
+a {
+  text-decoration: none;
+}
 h1 {
   font-size: var(--title-xl);
   font-weight: bold;
