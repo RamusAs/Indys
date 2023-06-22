@@ -38,6 +38,12 @@
 		"16": "images/zoom16.png",
 		"48": "images/zoom48.png"
 	},
+	"content_scripts": [
+		{
+		  "matches": ["<all_urls>"],
+		  "js": ["content.js"]
+		}
+	  ],
 	"content_security_policy": {
 		"extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
 	}
