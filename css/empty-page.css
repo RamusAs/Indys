@@ -1,0 +1,19 @@
+#empty-page .content_image {
+    display: flex;
+    justify-content: center;
+}
+#empty-page .content_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#empty-page h1 {
+    font-size: var(--title-l);
+    color: var(--color-grey-600);
+    margin-bottom: 0;
+}
+#empty-page p {
+    font-size: var(--text-m);
+    color: var(--color-grey-600);
+}
