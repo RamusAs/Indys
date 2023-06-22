@@ -2,6 +2,7 @@ const button_summarize = document.querySelector('#button-summarize');
 const button_reformulate = document.querySelector('#button-reformulate');
 const text_area = document.querySelector('.text_selected');
 const loader_summarize = document.getElementById('loader-summarize');
+const buttons_length = document.querySelectorAll('.content_summarize-options ul li a');
 
 button_summarize.addEventListener('click', event => {
     event.preventDefault()
@@ -77,3 +78,14 @@ function summarize(text) {
             console.error(error);
         });
 }
+
+
+buttons_length.forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault()
+      buttons_length.forEach(btn => {
+        btn.classList.remove("js-active");
+      });
+      button.classList.add("js-active");
+    });
+  });

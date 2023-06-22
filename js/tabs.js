@@ -64,7 +64,7 @@ window.onload = function () {
     function getPage() {
       const buttonRead = document.querySelector(".item.active button.read");
       const buttonSummarize = document.querySelector(".item.active button.summarize");
-     
+     if (buttonRead) {
       if (buttonRead.classList.contains("active")) {
         document.querySelector("#page-read").classList.add("active");
         document.querySelector("#page-summarize").classList.remove("active");
@@ -72,6 +72,8 @@ window.onload = function () {
       } else {
         document.querySelector("#page-read").classList.remove("active");
       }
+     }
+     if (buttonSummarize) {
       if (buttonSummarize.classList.contains("active")) {
         document.querySelector("#page-summarize").classList.add("active");
         document.querySelector("#page-default").classList.remove("active");
@@ -79,6 +81,8 @@ window.onload = function () {
       } else {
         document.querySelector("#page-summarize").classList.remove("active");
       }
+     }
+
 
     }
 
