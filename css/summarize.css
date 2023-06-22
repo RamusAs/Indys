@@ -42,3 +42,6 @@
     font-weight: bold;
     font-size: 14px;
 }
+#loader-summarize {
+    display: none; 
+  }
