@@ -33,12 +33,16 @@
   box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
   color: #333;
   display: -webkit-box;
-  min-width: 400px;
   padding: 0;
   position: relative;
   transition: 200ms transform;
 }
-
+#reset-all-cancel {
+  color: tomato;
+}
+#reset-all-ok {
+  color: var(--color-primary-800);
+}
 /* If the options page is loading don't do the transition. */
 .loading .overlay,
 .loading .overlay .page {
