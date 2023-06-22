@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Dys Extension</title>
-    
     <script src="zoom.js"></script>
     <script src="read.js"></script>
     <script src="js/tabs.js"></script>
@@ -18,6 +18,8 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/empty-page.css">
+    <link rel="stylesheet" href="css/summarize.css">
     <link rel="stylesheet" href="css/chrome_shared.css">
     <link rel="stylesheet" href="css/overlay.css">
     <link rel="stylesheet" href="css/widgets.css">
@@ -67,7 +69,7 @@
     </div>
 
     
-    <div class="page">
+    <div class="page" id="page-read">
         <div style="text-align: center">
           <table style="margin: 0px auto">
             <tr>
@@ -186,24 +188,70 @@
         </button>
       </section>
     </div>
-
+    <div class="page" id="page-summarize">
+      <section id="section-summarize">
+        <div class="section__title">
+          <div class="section__title-right">
+            <h1>Résumé</h1>
+            <span class="icon">
+              <object data="icons/star-fav.svg" type="image/svg+xml"></object>
+            </span>
+          </div>
+          <div class="section__title-left">
+            <span class="icon">
+              <object data="icons/copy.svg" type="image/svg+xml"></object>
+            </span>
+          </div>
+        </div>
+        <div class="content_summarize-output bordered">
+          <div id="loader-summarize">loading...</div>
+          <div class="text_selected"></div>
+        </div>
+        <div class="content_summarize-options">
+          <h2>Taille du résumé</h2>
+          <ul class="bordered">
+            <li>
+              <a href="" class="js-active">Court</a>
+            </li>
+            <li>
+              <a href="">Moyen</a>
+            </li>
+            <li>
+              <a href="">Long</a>
+            </li>
+          </ul>
+        </div>
+        <button id="button-summarize" style="margin-bottom: 10px">Summarize</button>
+      </section>
+    </div>
+    <div class="page" id="page-default">
+      <section id="empty-page">
+        <div class="content_image">
+          <object data="icons/select-actions.svg" type="image/svg+xml"></object>
+        </div>
+        <div class="content_text">
+          <h1>Aucune action sélectionnée</h1>
+          <p>Sélectionnez une action pour vous aider à lire ou écrire un texte.</p>
+        </div>
+      </section>
+    </div>
     <div class="wrapper">
       <div class="container">
         <nav>
-          <a href="#fav" class="tab active">
+          <a href="#fav" class="tab active" id="tab-fav">
             <svg height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="star">
                 <path id="Vector" d="M12 17.77L18.18 21.5L16.54 14.47L22 9.74L14.81 9.13L12 2.5L9.19 9.13L2 9.74L7.46 14.47L5.82 21.5L12 17.77Z" fill="currentColor"/>
               </g>
             </svg>
           </a>
-          <a href="#read" class="tab">
+          <a href="#read" class="tab" id="tab-read">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path fill='currentColor' d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
           </a>
-          <a href="#write" class="tab">
+          <a href="#write" class="tab" id="tab-write">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill='currentColor' d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
           </a>
-          <a href="#params" class="tab">
+          <a href="#params" class="tab" id="tab-params">
             <svg height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M13.6311 6.05932L13.7216 6.09314L13.815 6.11807L16.726 6.89521C16.7522 6.90221 16.7731 6.92199 16.7816 6.94778L17.7171 9.81181L17.7471 9.90369L17.7859 9.99225L18.9933 12.7527C19.0041 12.7776 19.0017 12.8062 18.9868 12.8289L17.3309 15.3461L17.2778 15.4268L17.2327 15.5123L15.8273 18.1774C15.8146 18.2014 15.7907 18.2174 15.7637 18.2198L12.7633 18.4947L12.667 18.5035L12.5721 18.5215L9.61215 19.0844C9.5855 19.0895 9.55809 19.0807 9.53932 19.0611L7.45373 16.8867L7.38683 16.8169L7.31351 16.7539L5.02796 14.7907C5.00738 14.773 4.99714 14.7461 5.00074 14.7192L5.40047 11.7329L5.4133 11.6371L5.41682 11.5405L5.52672 8.52954C5.52771 8.50243 5.54234 8.47766 5.56561 8.46371L8.14965 6.91429L8.23254 6.86458L8.31026 6.80711L10.7328 5.01573C10.7547 4.9996 10.7832 4.99559 10.8086 5.00508L13.6311 6.05932ZM9.54373 3.40762C10.1097 2.98911 10.849 2.88521 11.5084 3.13151L14.3309 4.18575L17.2419 4.96289C17.922 5.14445 18.4641 5.65763 18.6827 6.32675L19.6183 9.19078L20.8257 11.9512C21.1077 12.5962 21.0445 13.34 20.6577 13.9281L19.295 15.9996C19.3218 16.4908 19.5907 17.2008 20.4247 17.6177C20.5113 17.6611 20.5113 17.7911 20.338 17.7044C19.4965 17.4031 18.7292 17.4427 18.3976 17.591L17.5964 19.1103C17.268 19.733 16.6471 20.1473 15.9461 20.2115L12.9457 20.4863L9.98578 21.0492C9.29426 21.1807 8.58315 20.9535 8.09591 20.4455L6.01032 18.2711L3.72478 16.3078C3.19081 15.8492 2.92503 15.1516 3.01842 14.4539L3.41815 11.4676L3.52805 8.45659C3.55372 7.75315 3.9334 7.11042 4.5371 6.74843L7.12115 5.19901L9.54373 3.40762Z" fill="#667799"/>
             </svg>
@@ -213,25 +261,25 @@
           <div class="item active" id="fav">
             <ul>
               <li>
-                <button  id="reading">
+                <button class="read">
                   <object data="icons/menu_book.svg"> </object>
                   <span>Mode Lecture</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summarize">
                   <object data="icons/short_text.svg"></object>
                   <span>Resume</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="reformulate">
                   <object data="icons/refresh.svg"></object>
                   <span>Reformulation</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summarize">
                   <object data="icons/mic.svg" ></object>
                   <span>Synthese</span>
                 </button>
@@ -247,25 +295,25 @@
           <div class="item" id="css">
             <ul>
               <li>
-                <button>
+                <button class="read">
                   <object data="icons/menu_book.svg"> </object>
                   <span>Mode Lecture</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summarize">
                   <object data="icons/short_text.svg" ></object>
                   <span>Resume</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="reformulate">
                   <object data="icons/refresh.svg" ></object>
                   <span>Reformulation</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summary">
                   <object data="icons/list.svg" ></object>
                   <span>Sommaire</span>
                 </button>
@@ -275,19 +323,19 @@
           <div class="item" id="js">
             <ul>
               <li>
-                <button>
+                <button class="read">
                   <object data="icons/menu_book.svg"> </object>
                   <span>Mode Lecture</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summarize">
                   <object data="icons/short_text.svg" ></object>
                   <span>Resume</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="reformulate">
                   <object data="icons/refresh.svg" ></object>
                   <span>Reformulation</span>
                 </button>
@@ -297,19 +345,19 @@
           <div class="item" id="js">
             <ul>
               <li>
-                <button>
+                <button class="read">
                   <object data="icons/menu_book.svg"> </object>
                   <span>Mode Lecture</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="summarize">
                   <object data="icons/short_text.svg" ></object>
                   <span>Resume</span>
                 </button>
               </li>
               <li>
-                <button>
+                <button class="reformulate">
                   <object data="icons/refresh.svg" ></object>
                   <span>Reformulation</span>
                 </button>
@@ -319,7 +367,8 @@
         </div>
       </div>
     </div>
-
+    <script src="js/summarize.js"></script>
+    <script src="js/suggest.js"></script>
   </body>
 </html>
 

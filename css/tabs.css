@@ -22,7 +22,7 @@ nav {
   justify-content: space-around;
   border-top: 1px solid gainsboro;
   z-index: 8;
-  background: #F7F9FD;
+  background: var(--color-grey-50);
 }
 
 nav a {
@@ -31,7 +31,7 @@ nav a {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #667799;
+  color: var(--color-grey-600);
   font-size: 1.4rem;
   width: 50px;
 }
@@ -43,13 +43,17 @@ nav a {
   width: 100%;
 }
 .sub-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 16px 16px 24px 16px;
   margin: 0;
-  gap: 24px;
-  width: 100%;
-  background-color: #F7F9FD;
+  padding: 16px 16px 24px 16px;
+  max-width: 100%;
+  display: grid;
+  background-color: var(--color-grey-50);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 12px;
+  grid-column-gap: 8px;
+}
+.sub-nav ul li button {
+  margin: auto;
 }
 
 .sub-nav button {
@@ -60,12 +64,9 @@ nav a {
   font-weight: bolder;
 }
 
-.sub-nav button:focus object {
-  background: red;
-}
 
 .sub-nav button object  svg {
-  fill: #667799;
+  fill: var(--color-grey-600);
 }
 
 .sub-nav button object {
@@ -77,13 +78,13 @@ nav a {
   align-items: center;
   gap: 8px;
   border-radius: 8px;
-  background: #EBF0FA;
+  background: var(--color-grey-100);
 }
 
 .sub-nav button.add object {
   border-radius: 8px;
   background: transparent;
-  border: 2px dashed #96A6C5;
+  border: 2px dashed var(--color-grey-500);
 }
 
 .item {
@@ -100,19 +101,25 @@ nav a {
 .item.active {
   display: block;
 }
-
+.sub-nav button.active span {
+  font-size: var(--title-s);
+  color: var(--color-primary-700);
+}
+.sub-nav button object {
+  pointer-events: none;
+}
 .tab {
   height: 95%;
   transition: all 0.3s;
 }
 
 .tab.active {
-  color: #5044E4;
+  color: var(--color-primary-700);
   position: relative;
-  border-bottom: 3px solid #5044E4;
+  border-bottom: 3px solid var(--color-primary-700);
 }
 .tab.active::before {
-  color: #5044E4;
+  color: var(--color-primary-700);
   position: absolute;
   left: 0;
   top: 0;
@@ -127,6 +134,20 @@ nav a {
   color: rgb(12, 12, 12);
 }
 
-object svg {
-  fill: red;
+
+@media (max-width: 900px) {
+  .sub-nav ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .sub-nav ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sub-nav ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
