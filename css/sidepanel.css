@@ -100,13 +100,15 @@ section {
   font-size: smaller;
 }
 
+.font-settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .font-settings-div {
   margin-inline-end: 5px;
   width: 180px;
-}
-
-.font-settings-div:first-of-type {
-  width: 138px;
 }
 
 .font-settings-div > :first-child {
@@ -124,7 +126,6 @@ section {
 
 .sample-text-div {
   display: -webkit-flex;
-  white-space: nowrap;
   width: 100%;
   overflow: hidden;
 }
@@ -163,24 +164,37 @@ select {
   width: 100%;
   max-width: 200px;
 }
-
-#footer > button {
-  padding-inline-start: 9px;
-  padding-inline-end: 9px;
+#footer {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+#footer button,
+#footer #apply-settings:enabled {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 12px;
+  color: var(--color-grey-100);
+  background: var(--primary-700, #5044E4);
+  font-weight: bold;
 }
 
-#footer > #apply-settings {
-  padding-inline-start: 17px;
-  padding-inline-end: 17px;
-}
 
-#apply-settings:enabled {
-  background-color: #4f7dd6;
+#footer #apply-settings {
+  background-color: var(--color-primary-400);
   background-image: none;
   border-color: #2a4aac;
   box-shadow: none;
   color: #fbfafb;
   text-shadow: none;
+}
+
+#footer #reset-all-button {
+  background-color: tomato !important;
 }
 
 .slider-legend {
