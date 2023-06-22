@@ -1,0 +1,30 @@
+.zoom-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-self: stretch;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.zoom-action {
+  display: flex;
+  border: solid 2px #DCE4F4;
+  border-radius: 8px;
+  padding: 0 8px;
+  width: 138px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #667799;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.zoom-action span {
+  height: 100%;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border-left: solid 2px #DCE4F4;
+  border-right: solid 2px #DCE4F4;
+}

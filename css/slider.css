@@ -1,7 +1,5 @@
 /* Customize the standard input[type='range']. */
 .slider > input[type='range'] {
-  -webkit-appearance: none !important;  /* Hide the default thumb icon. */
-  background: transparent;  /* Hide the standard slider bar */
   height: 100%;
   left: -2px;  /* Required to align the input element with the parent. */
   position: absolute;
@@ -11,7 +9,6 @@
 
 /* Custom thumb icon. */
 .slider > input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
   background-position: center center;
   background-repeat: no-repeat;
   height: 24px;

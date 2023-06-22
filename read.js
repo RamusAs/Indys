@@ -13,4 +13,5 @@ window.onload = () => {
     });
   }
   document.getElementById('reading').onclick = toReadMode;
+  
 };

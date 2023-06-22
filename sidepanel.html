@@ -18,17 +18,7 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/empty-page.css">
-    <link rel="stylesheet" href="css/summarize.css">
-    <link rel="stylesheet" href="css/chrome_shared.css">
-    <link rel="stylesheet" href="css/overlay.css">
-    <link rel="stylesheet" href="css/widgets.css">
-    <link rel="stylesheet" href="css/uber_shared.css">
-    <link rel="stylesheet" href="css/sidepanel.css">
-    <link rel="stylesheet" href="slider.css">
-    <link rel="stylesheet" href="css/tabs.css">
-    <link rel="stylesheet" href="css/header.css">
-  </head>
+    <link rel="stylesheet" href="css/index.css">
   <body>
     <header class="header">
       <a><img src="icons/Logo.png" /></a>
@@ -70,45 +60,41 @@
 
     
     <div class="page" id="page-read">
-        <div style="text-align: center">
-          <table style="margin: 0px auto">
-            <tr>
-              <td><button type="button" id="decreaseButton">-</button></td>
-              <td>
-                <div style="width: 50px;" id="displayDiv">100%</div>
-              </td>
-              <td><button type="button" id="increaseButton">+</button></td>
-            </tr>
-          </table>
-          <button type="button" id="defaultButton">Reset to Default</button>
-          <div id="defaultLabel"></div>
+        <div class="zoom-container" >
+        <span>Zoom</span>
+        <div class="zoom-action">
+          <button type="button" id="decreaseButton">-</button>
+          <span id="displayDiv">100%</span>
+          <button type="button" id="increaseButton">+</button>
         </div>
-      <section>
+      </div>
+      
+      <section class="zoom-container">
         <h3 class="script-header">Script</h3>
-        <div class="font-settings-row">
+        <div>
           <select id="scriptList"></select>
         </div>
       </section>
-      <section>
+      <section class="zoom-container">
         <h3>Proportional fonts</h3>
-        <div class="font-settings-row">
-          <div class="font-settings-div">
-            <div id="defaultFontSizeLabel"></div>
-            <div style="width: 100%; margin-bottom: 0">
-              <span class="slider-legend smaller">Aa</span>
-              <div id="defaultFontSizeSliderContainer" class="slider-container"></div>
-              <span class="slider-legend">Aa</span>
-            </div>
+        
+        <div class="font-settings-div">
+          <div id="defaultFontSizeLabel"></div>
+          <div>
+            <span class="slider-legend smaller">Aa</span>
+            <div id="defaultFontSizeSliderContainer" class="slider-container"></div>
+            <span class="slider-legend">Aa</span>
           </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="font-settings">
           <div class="font-settings-div">
             <div>Standard</div>
             <div><select id="standardFontList"></select></div>
           </div>
-          <div class="sample-text-div" style="height: 33%">
-            <span id='standardFontSample' class="sample-text-span">
-             18: Voici à quoi ressemblera votre texte.
-            </span>
-          </div>
+          
           <div class="font-settings-div">
             <div>Serif</div>
             <div><select id="serifFontList"></select></div>
@@ -118,8 +104,12 @@
             <div><select id="sansSerifFontList"></select></div>
           </div>
         </div>
-        <div class="bordered" style="position: relative; left: 0; right: 0; height: 160px; width: 702px;">
-          
+        <div class="bordered" style="position: relative; left: 0; right: 0; height: 160px;">
+          <div class="sample-text-div" >
+            <span id='standardFontSample' class="sample-text-span">
+              18: Voici à quoi ressemblera votre texte.
+            </span>
+          </div>
           <div class="sample-text-div" style="height: 33%">
             <span id="serifFontSample" class="sample-text-span">
               18: Voici à quoi ressemblera votre texte.
@@ -132,15 +122,16 @@
           </div>
         </div>
       </section>
-      <section>
+      <section style="display: none">
         <h3>Fixed-width fonts</h3>
-        <div class="font-settings-row">
+        <div>
           <div class="font-settings-div">
             <div id="fixedFontSizeLabel"></div>
-            <div style="width: 100%; margin-bottom: 0">
-              <span class="slider-legend smaller">Aa</span>
+            <div class="zoom-container" style="width: 100%; margin-bottom: 0">
+              <button class="slider-legend smaller" type="button">Aa</button>
+              <span></span>
               <div id="defaultFixedFontSizeSliderContainer" class="slider-container"></div>
-              <span class="slider-legend">Aa</span>
+              <button class="slider-legend" type="button" id="increaseButton">Aa</button>
             </div>
           </div>
           <div class="font-settings-div">
@@ -148,7 +139,7 @@
             <div><select id="fixedFontList"></select></div>
           </div>
         </div>
-        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px;">
           <div class="sample-text-div" style="height: 100%">
             <span id="fixedFontSample" class="sample-text-span">
               18: Voici à quoi ressemblera votre texte.
@@ -156,9 +147,9 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="zoom-container">
         <h3>Minimum font size</h3>
-        <div class="font-settings-row">
+        <div>
           <div class="font-settings-div">
             <div id="minFontSizeLabel" style="margin-bottom: 8px"></div>
             <div style="width: 100%; margin-bottom: 12px">
@@ -168,25 +159,26 @@
             </div>
           </div>
         </div>
-        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px; width: 702px;">
+      </section>
+        <div class="bordered" style="position: relative; overflow: hidden; left: 0; right: 0; height: 58px;">
           <div class="sample-text-div" style="height: 100%">
             <span id="minFontSample" class="sample-text-span">
               18: Voici à quoi ressemblera votre texte.
             </span>
           </div>
         </div>
-      </section>
       <section id="footer">
         <button id="apply-settings">
-          Apply settings
+          Enrégistrer
         </button>
-        <button id="reset-this-script-button">
+        <button style="display: none;" id="reset-this-script-button">
           Reset settings for this script
         </button>
         <button id="reset-all-button">
-          Reset all settings
+          Réinitialiser
         </button>
       </section>
+    </div>
     </div>
     <div class="page" id="page-summarize">
       <section id="section-summarize">
