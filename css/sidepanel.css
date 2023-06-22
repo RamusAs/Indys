@@ -1,3 +1,39 @@
+:root {
+  --text-s: 14px;
+  --text-m: 16px;
+  --text-l: 18px;
+
+  --title-s: 14px; 
+  --title-m: 16px; 
+  --title-l: 18px; 
+  --title-xl: 22px; 
+  --title-xxl: 28px; 
+
+  --color-white: #fff;
+  --color-primary-100: #F1F1FC;
+  --color-primary-200: #E7E6FB;
+  --color-primary-300: #D4D1F8;
+  --color-primary-400: #B9B4F4;
+  --color-primary-500: #948CF0;
+  --color-primary-600: #685EEE;
+  --color-primary-700: #5044E4;
+  --color-primary-800: #3429B1;
+  --color-primary-900: #2B2387;
+
+  --color-secondary: #FFCD29;
+  --color-dark: #282E3E;
+
+  --color-grey-50: #F7F9FD;
+  --color-grey-100: #EBF0FA;
+  --color-grey-200: #DCE4F4;
+  --color-grey-300: #CBD6EC;
+  --color-grey-400: #BECBE4;
+  --color-grey-500: #96A6C5;
+  --color-grey-600: #667799;
+  --color-grey-700: #445473;
+  --color-grey-800: #2A3551;
+  --color-grey-900: #0B1732;
+}
 ::-webkit-scrollbar {
   display: none;
 }
@@ -31,25 +67,31 @@ body.uber-frame header > h1 {
 }
 
 h1 {
-  font-size: 16px;
+  font-size: var(--title-xl);
+  font-weight: bold;
+}
+h2 {
+  font-size: var(--title-m);
+  font-weight: bold;
+}
+h3 {
+  margin-bottom: 11px;
+  font-size: 14px;
 }
 
 .script-header {
   margin-top: 12px;
 }
 
-h3 {
-  margin-bottom: 11px;
-  font-size: 14px;
-}
+
 
 section {
   font-size: 12px;
 }
 
 .bordered {
-  border: 1px solid #D9D9D9;
-  border-radius: 2px;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 12px;
 }
 
 .smaller {
