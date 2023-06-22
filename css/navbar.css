@@ -10,8 +10,10 @@
 .navbar ul {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     height: 100%;
+}
+.navbar ul li {
+    width: 25%;   
 }
 .navbar ul li a.js-active svg path {
     fill: var(--color-primary-700);
