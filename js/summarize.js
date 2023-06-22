@@ -3,7 +3,7 @@ const button_reformulate = document.querySelector('#button-reformulate');
 const text_area = document.querySelector('.text_selected');
 const loader_summarize = document.getElementById('loader-summarize');
 const buttons_length = document.querySelectorAll('.content_summarize-options ul li a');
-
+console.log('test')
 button_summarize.addEventListener('click', event => {
     event.preventDefault()
     loader_summarize.style.display = 'none';
@@ -32,16 +32,16 @@ function getSelectedText() {
                 if (response.selectedText.length <= 100000) {
                     summarize(response.selectedText)
                 } else {
-                    text_area.textContent = 'Selected text too long';
+                    text_area.textContent = 'Le texte séléctionné est trop long';
                 }
             } else {
-                text_area.textContent = 'Please select some text';
+                text_area.textContent = 'Sélectionnez du texte à résumer.';
             }
         });
     });
 }
 function summarize(text) {
-
+    let length = getLength()
     const options = {
         method: 'POST',
         headers: {
@@ -50,8 +50,8 @@ function summarize(text) {
           'authorization': 'Bearer 3xD2wbyAVLNHBxfwK4Co9SZzuDZztmVBErNJ50Y8'
         },
         body: JSON.stringify({
-          'length': 'medium',
-          'format': 'bullets',
+          'length': `${length}`,
+          'format': 'paragraph',
           'model': 'summarize-xlarge',
           'temperature': 0.3,
           'text':  `${text}`,
@@ -74,7 +74,7 @@ function summarize(text) {
         })
         .catch(function(error) {
             loader_summarize.style.display = 'none';
-            text_area.textContent = 'Error while summarizing';
+            text_area.textContent = 'Erreur lors du résumé';
             console.error(error);
         });
 }
@@ -89,3 +89,12 @@ buttons_length.forEach(button => {
       button.classList.add("js-active");
     });
   });
+
+
+  function getLength() {
+    const activeButton = document.querySelector('.content_summarize-options ul li a.js-active');
+    if (activeButton) {
+      return activeButton.getAttribute('data-value');
+    }
+    return null;
+  }
